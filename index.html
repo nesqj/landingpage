@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA que Trabalha por Você — 110 prompts prontos para o seu negócio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg-deep: #150C2B;
+  --bg-deep-2: #1F1345;
+  --violet: #7C3AED;
+  --violet-soft: #A78BFA;
+  --magenta: #D6409F;
+  --teal: #0FA98A;
+  --orange: #FF7A45;
+  --blue: #3B82F6;
+  --green: #5FA321;
+  --rust: #B4522F;
+  --cream: #FAF7F1;
+  --cream-2: #F1ECE1;
+  --ink: #1B1229;
+  --ink-soft: #55506A;
+  --white: #FFFFFF;
+  --line: rgba(27,18,41,0.12);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Sora',sans-serif;
+  margin:0;
+  line-height:1.12;
+  letter-spacing:-0.01em;
+}
+p{margin:0;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+section{position:relative;}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(21,12,43,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.nav .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+}
+.nav-logo{
+  font-family:'Sora',sans-serif;font-weight:700;color:var(--white);
+  font-size:17px;display:flex;align-items:center;gap:8px;
+}
+.nav-logo .spark{color:var(--orange);}
+.nav-cta{
+  background:var(--orange);color:var(--white);
+  font-family:'Sora',sans-serif;font-weight:600;font-size:14px;
+  padding:10px 20px;border-radius:8px;text-decoration:none;
+  white-space:nowrap;
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+.nav-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px -6px rgba(255,122,69,0.6);
+}
+.nav-cta:active{transform:translateY(0);}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:radial-gradient(ellipse 900px 500px at 15% -10%, #3A1E7A 0%, transparent 60%),
+             radial-gradient(ellipse 700px 500px at 100% 10%, #5B1F6B 0%, transparent 55%),
+             linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-deep-2) 100%);
+  color:var(--white);
+  padding:76px 0 96px;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr 0.95fr;gap:56px;align-items:center;
+}
+.hero-eyebrow{
+  font-size:13px;font-weight:600;color:var(--violet-soft);
+  letter-spacing:0.01em;margin-bottom:18px;
+}
+.hero h1{
+  font-size:46px;color:var(--white);font-weight:700;
+}
+.hero h1 em{
+  font-style:normal;color:var(--orange);
+}
+.hero-sub{
+  margin-top:22px;font-size:18px;line-height:1.55;
+  color:rgba(255,255,255,0.78);max-width:520px;
+}
+.hero-cta-row{margin-top:34px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+.btn-primary{
+  background:var(--orange);color:var(--white);
+  font-family:'Sora',sans-serif;font-weight:700;font-size:17px;
+  padding:17px 30px;border-radius:9px;text-decoration:none;
+  box-shadow:0 14px 30px -10px rgba(255,122,69,0.55);
+  border:none;cursor:pointer;
+  display:inline-block;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.015);
+  box-shadow:0 20px 40px -10px rgba(255,122,69,0.7);
+}
+.btn-primary:active{
+  transform:translateY(-1px) scale(0.985);
+  box-shadow:0 10px 20px -8px rgba(255,122,69,0.5);
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 14px 30px -10px rgba(255,122,69,0.55);}
+  50%{box-shadow:0 14px 38px -6px rgba(255,122,69,0.9);}
+}
+.btn-primary.pulse{animation:pulseGlow 2.6s ease-in-out infinite;}
+.btn-primary.pulse:hover{animation-play-state:paused;}
+@media (prefers-reduced-motion: reduce){
+  .btn-primary.pulse{animation:none;}
+  .btn-primary,.nav-cta{transition:none;}
+}
+.hero-note{font-size:13.5px;color:rgba(255,255,255,0.55);}
+.hero-note strong{color:rgba(255,255,255,0.8);}
+
+/* mockup card */
+.mock{
+  background:var(--cream);border-radius:16px;padding:26px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  transform:rotate(1.2deg);
+}
+.mock-top{
+  display:flex;align-items:center;gap:8px;margin-bottom:18px;
+}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ink-soft);opacity:0.25;}
+.mock-label{
+  margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:600;
+}
+.mock-you{
+  background:var(--cream-2);border-radius:10px;padding:14px 16px;
+  font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;
+}
+.mock-prompt{
+  border-left:3px solid var(--violet);background:#F4EEFF;
+  border-radius:0 10px 10px 0;padding:14px 16px;font-size:13.5px;
+  color:var(--ink);margin-bottom:14px;line-height:1.5;
+}
+.mock-prompt b{color:var(--violet);}
+.mock-out{
+  border-left:3px solid var(--teal);background:#EAFAF5;
+  border-radius:0 10px 10px 0;padding:14px 16px;font-size:13.5px;
+  color:var(--ink);line-height:1.6;
+}
+.mock-out .line{display:flex;gap:8px;margin-bottom:6px;}
+.mock-out .line:last-child{margin-bottom:0;}
+.mock-out .num{color:var(--teal);font-weight:700;}
+
+/* ---------- PAIN ---------- */
+.pain{padding:100px 0 80px;}
+.section-head{max-width:640px;margin-bottom:48px;}
+.section-head h2{font-size:34px;color:var(--ink);}
+.section-head p{margin-top:14px;font-size:17px;color:var(--ink-soft);line-height:1.6;}
+
+.pain-list{display:grid;gap:2px;background:var(--line);border-radius:14px;overflow:hidden;}
+.pain-item{
+  background:var(--white);padding:24px 26px;display:flex;gap:18px;align-items:flex-start;
+}
+.pain-item .mark{
+  font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--orange);
+  flex-shrink:0;width:26px;
+}
+.pain-item p{font-size:16.5px;color:var(--ink);line-height:1.5;}
+
+.pain-close{
+  margin-top:38px;font-size:19px;color:var(--ink);font-weight:600;
+  max-width:600px;line-height:1.5;
+}
+.pain-close span{color:var(--violet);}
+
+/* ---------- QUOTE / TURN ---------- */
+.turn{
+  background:linear-gradient(180deg,var(--bg-deep-2) 0%, var(--bg-deep) 100%);
+  padding:88px 0;color:var(--white);text-align:center;
+}
+.turn blockquote{
+  font-family:'Sora',sans-serif;font-size:30px;font-weight:600;
+  max-width:760px;margin:0 auto;line-height:1.4;color:var(--white);
+}
+.turn cite{
+  display:block;margin-top:22px;font-style:normal;font-size:14px;
+  color:var(--violet-soft);font-weight:600;
+}
+
+/* ---------- MODULES ---------- */
+.modules{padding:100px 0;}
+.mod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.mod-card{
+  background:var(--white);border-radius:14px;padding:26px 24px;
+  border-top:4px solid var(--mc);
+}
+.mod-card .mod-count{
+  font-family:'Sora',sans-serif;font-weight:800;font-size:26px;color:var(--mc);
+}
+.mod-card .mod-count span{font-size:13px;font-weight:600;color:var(--ink-soft);margin-left:4px;}
+.mod-card h3{font-size:19px;margin-top:10px;color:var(--ink);}
+.mod-card p{margin-top:8px;font-size:14.5px;color:var(--ink-soft);line-height:1.5;}
+.mod-card.wide{grid-column:span 1;}
+
+.mod-extra{
+  margin-top:18px;background:var(--ink);color:var(--white);
+  border-radius:14px;padding:28px 30px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.mod-extra h3{color:var(--white);font-size:20px;}
+.mod-extra p{color:rgba(255,255,255,0.65);font-size:14.5px;margin-top:6px;}
+.mod-extra .badge{
+  font-family:'Sora',sans-serif;font-weight:800;font-size:30px;color:var(--orange);
+  white-space:nowrap;
+}
+
+/* ---------- PLAN ---------- */
+.plan{background:var(--cream-2);padding:100px 0;}
+.plan-timeline{position:relative;padding-left:38px;}
+.plan-timeline::before{
+  content:'';position:absolute;left:13px;top:6px;bottom:6px;width:2px;
+  background:var(--line);
+}
+.plan-day{position:relative;padding-bottom:30px;}
+.plan-day:last-child{padding-bottom:0;}
+.plan-day::before{
+  content:attr(data-day);position:absolute;left:-38px;top:0;
+  width:28px;height:28px;border-radius:50%;background:var(--violet);color:var(--white);
+  font-family:'Sora',sans-serif;font-weight:700;font-size:12.5px;
+  display:flex;align-items:center;justify-content:center;
+}
+.plan-day h4{font-size:16.5px;color:var(--ink);}
+.plan-day p{margin-top:5px;font-size:14.5px;color:var(--ink-soft);line-height:1.5;max-width:520px;}
+
+/* ---------- BONUS ---------- */
+.bonus{padding:100px 0;}
+.bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.bonus-card{
+  border-radius:16px;padding:30px 28px;color:var(--white);
+  position:relative;overflow:hidden;
+}
+.bonus-card.b1{background:linear-gradient(135deg,#FF7A45,#B4522F);}
+.bonus-card.b2{background:linear-gradient(135deg,#5FA321,#0FA98A);}
+.bonus-tag{
+  display:inline-block;font-size:12.5px;font-weight:700;
+  background:rgba(255,255,255,0.18);padding:5px 12px;border-radius:20px;
+  margin-bottom:14px;
+}
+.bonus-card h3{color:var(--white);font-size:22px;}
+.bonus-card p{color:rgba(255,255,255,0.85);margin-top:10px;font-size:15px;line-height:1.55;}
+.bonus-value{
+  margin-top:18px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,0.9);
+  text-decoration:line-through;opacity:0.8;
+}
+
+/* ---------- AUDIENCE ---------- */
+.audience{background:var(--ink);color:var(--white);padding:90px 0;}
+.audience .section-head h2{color:var(--white);}
+.audience .section-head p{color:rgba(255,255,255,0.6);}
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.aud-item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:rgba(255,255,255,0.05);border-radius:12px;padding:20px;
+}
+.aud-check{
+  width:22px;height:22px;border-radius:50%;background:var(--orange);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--white);font-weight:800;margin-top:1px;
+}
+.aud-item p{font-size:15.5px;color:rgba(255,255,255,0.88);line-height:1.5;}
+
+/* ---------- OFFER ---------- */
+.offer{padding:110px 0 100px;background:var(--cream);}
+.offer-box{
+  max-width:560px;margin:0 auto;text-align:center;
+  background:var(--white);border-radius:22px;padding:50px 44px;
+  border:1px solid var(--line);
+  box-shadow:0 40px 80px -40px rgba(27,18,41,0.25);
+}
+.offer-kicker{font-size:14px;color:var(--violet);font-weight:700;}
+.offer-box h2{font-size:28px;margin-top:10px;color:var(--ink);}
+.price-row{margin:26px 0 6px;}
+.price-tag{font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:var(--ink);}
+.price-tag sup{font-size:22px;top:-22px;position:relative;margin-right:2px;}
+.price-note{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+.offer-list{text-align:left;margin:30px 0;display:grid;gap:12px;}
+.offer-list .item{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink);}
+.offer-list .item .ok{color:var(--teal);font-weight:800;flex-shrink:0;}
+.offer-box .btn-primary{width:100%;text-align:center;font-size:18px;padding:19px;}
+.offer-guarantee{
+  margin-top:20px;font-size:13px;color:var(--ink-soft);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+
+/* ---------- GUARANTEE BAND ---------- */
+.guarantee{
+  background:var(--cream-2);padding:56px 0;
+}
+.guarantee .wrap{
+  display:flex;align-items:center;gap:26px;max-width:820px;
+}
+.guarantee .seal{
+  width:88px;height:88px;border-radius:50%;background:var(--violet);
+  color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:11.5px;text-align:center;
+  flex-shrink:0;line-height:1.35;letter-spacing:0.01em;padding:6px;
+}
+.guarantee h3{font-size:19px;color:var(--ink);}
+.guarantee p{margin-top:6px;font-size:15px;color:var(--ink-soft);line-height:1.5;}
+
+/* ---------- FAQ ---------- */
+.faq{padding:100px 0;max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);padding:22px 0;}
+.faq-item summary{
+  cursor:pointer;font-family:'Sora',sans-serif;font-weight:600;font-size:17px;
+  color:var(--ink);list-style:none;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:'+';font-size:22px;color:var(--violet);font-weight:400;flex-shrink:0;
+}
+.faq-item[open] summary::after{content:'–';}
+.faq-item p{margin-top:14px;font-size:15px;color:var(--ink-soft);line-height:1.6;max-width:620px;}
+
+/* ---------- FINAL CTA ---------- */
+.final{
+  background:radial-gradient(ellipse 800px 500px at 50% -20%, #3A1E7A 0%, transparent 60%), var(--bg-deep);
+  color:var(--white);padding:100px 0;text-align:center;
+}
+.final h2{font-size:34px;color:var(--white);max-width:640px;margin:0 auto;}
+.final p{margin-top:16px;font-size:16px;color:rgba(255,255,255,0.6);}
+.final .btn-primary{margin-top:30px;display:inline-block;}
+
+footer{background:var(--bg-deep);padding:36px 0;text-align:center;}
+footer p{font-size:13px;color:rgba(255,255,255,0.4);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:34px;}
+  .mock{transform:none;margin-top:10px;}
+  .mod-grid{grid-template-columns:1fr 1fr;}
+  .bonus-grid{grid-template-columns:1fr;}
+  .aud-grid{grid-template-columns:1fr;}
+  .guarantee .wrap{flex-direction:column;text-align:center;}
+}
+@media (max-width:560px){
+  .nav-logo{font-size:14px;}
+  .nav-cta{font-size:12.5px;padding:9px 14px;}
+  .mod-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:29px;}
+  .turn blockquote{font-size:23px;}
+  .offer-box{padding:36px 24px;}
+  .price-tag{font-size:42px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-logo"><span class="spark">✦</span> Venda com IA</div>
+    <a href="https://pay.cakto.com.br/qa4vxiu_1105635" target="_blank" rel="noopener" class="nav-cta">Quero os 110 prompts</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>O ChatGPT já sabe escrever por você.<br>Só faltava alguém te dizer <em>o quê</em> pedir.</h1>
+      <p class="hero-sub">110 prompts prontos para Instagram, WhatsApp, vendas e marketing do seu negócio. Você copia, cola, troca duas palavras — e usa hoje, sem curso e sem enrolação.</p>
+      <div class="hero-cta-row">
+        <a href="https://pay.cakto.com.br/qa4vxiu_1105635" target="_blank" rel="noopener" class="btn-primary pulse">Quero meus 110 prompts por R$ 19,90</a>
+        <p class="hero-note">Acesso imediato por e-mail · <strong>Garantia incondicional de 7 dias</strong></p>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mock-top">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="mock-label">MÓDULO 03 · WHATSAPP</span>
+      </div>
+      <div class="mock-you">"um cliente disse que achou caro e sumiu depois do orçamento..."</div>
+      <div class="mock-prompt"><b>Prompt 5 →</b> Crie uma resposta curta e persuasiva que contorne a objeção "está caro", destacando o valor da minha oferta, sem pressionar o cliente.</div>
+      <div class="mock-out">
+        <div class="line"><span class="num">✓</span><span>"Entendo! Deixa eu te mostrar o que está incluso nesse valor..."</span></div>
+        <div class="line"><span class="num">✓</span><span>Resposta pronta, no seu tom, em segundos</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Você abre o Instagram pra postar... e trava.</h2>
+      <p>Se você toca o negócio sozinho(a), provavelmente já viveu uma dessas cenas essa semana:</p>
+    </div>
+    <div class="pain-list">
+      <div class="pain-item"><span class="mark">01</span><p>Fica 20 minutos parado(a) na tela tentando pensar numa legenda pro post de hoje.</p></div>
+      <div class="pain-item"><span class="mark">02</span><p>Responde o cliente no WhatsApp copiando a última conversa, torcendo pra não errar o nome.</p></div>
+      <div class="pain-item"><span class="mark">03</span><p>Sabe que devia postar todo dia, mas a inspiração nunca aparece na hora certa.</p></div>
+      <div class="pain-item"><span class="mark">04</span><p>Vê a concorrência com conteúdo redondinho e pensa "eu não tenho tempo nem dinheiro pra isso".</p></div>
+    </div>
+    <p class="pain-close">O problema nunca foi falta de talento. É que <span>criar do zero, toda vez, consome um tempo que você não tem.</span></p>
+  </div>
+</section>
+
+<!-- TURN / QUOTE -->
+<section class="turn">
+  <div class="wrap">
+    <blockquote>"Você não precisa aprender tudo sobre IA.<br>Precisa aprender a usar a IA pra resolver os problemas certos."</blockquote>
+    <cite>— IA que Trabalha por Você</cite>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="modules">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>110 prompts. 7 módulos. Zero enrolação.</h2>
+      <p>Nada de teoria complicada — cada módulo resolve uma dor real do seu dia a dia, pronto pra copiar e colar no ChatGPT.</p>
+    </div>
+    <div class="mod-grid">
+      <div class="mod-card" style="--mc:var(--magenta)">
+        <div class="mod-count">10<span>prompts</span></div>
+        <h3>Conteúdo para Instagram</h3>
+        <p>Legendas, carrosséis, Stories, Reels e calendário editorial pronto.</p>
+      </div>
+      <div class="mod-card" style="--mc:var(--teal)">
+        <div class="mod-count">10<span>prompts</span></div>
+        <h3>WhatsApp e Atendimento</h3>
+        <p>Resposta pronta para primeiro contato, dúvida, objeção e pós-venda.</p>
+      </div>
+      <div class="mod-card" style="--mc:var(--orange)">
+        <div class="mod-count">10<span>prompts</span></div>
+        <h3>Vendas</h3>
+        <p>Ofertas irresistíveis, argumentos fortes e quebra de objeção sem pressão.</p>
+      </div>
+      <div class="mod-card" style="--mc:var(--blue)">
+        <div class="mod-count">10<span>prompts</span></div>
+        <h3>Marketing</h3>
+        <p>Público-alvo, persona, diferenciais, slogans e campanhas na medida.</p>
+      </div>
+      <div class="mod-card" style="--mc:var(--green)">
+        <div class="mod-count">10<span>prompts</span></div>
+        <h3>Organização e Produtividade</h3>
+        <p>Rotina, planejamento semanal, checklists — o negócio rodando sem caos.</p>
+      </div>
+      <div class="mod-card" style="--mc:var(--violet)">
+        <div class="mod-count">4<span>páginas</span></div>
+        <h3>Começando com IA</h3>
+        <p>O básico pra sair do zero com segurança, mesmo sem nunca ter usado.</p>
+      </div>
+    </div>
+    <div class="mod-extra">
+      <div>
+        <h3>+ 50 Prompts Extras</h3>
+        <p>Ferramentas rápidas de conteúdo, vendas, WhatsApp e marketing pra qualquer situação do dia a dia.</p>
+      </div>
+      <div class="badge">50</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 DAY PLAN -->
+<section class="plan">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Um plano de 7 dias pra sair do zero</h2>
+      <p>Você não precisa ler o ebook inteiro antes de começar. Siga um dia de cada vez.</p>
+    </div>
+    <div class="plan-timeline">
+      <div class="plan-day" data-day="1"><h4>Configure seu ChatGPT</h4><p>Crie sua conta e teste o primeiro prompt usando a fórmula Contexto + Objetivo + Público + Tom + Formato.</p></div>
+      <div class="plan-day" data-day="2"><h4>Crie seu perfil de cliente</h4><p>Defina seu público-alvo e a persona do seu cliente ideal em minutos.</p></div>
+      <div class="plan-day" data-day="3"><h4>Gere uma semana de conteúdo</h4><p>Posts, Stories e Reels prontos de uma só vez.</p></div>
+      <div class="plan-day" data-day="4"><h4>Prepare o WhatsApp</h4><p>Respostas prontas para primeiro contato, dúvidas e objeções mais comuns.</p></div>
+      <div class="plan-day" data-day="5"><h4>Monte sua oferta</h4><p>Uma oferta irresistível pro seu produto ou serviço principal.</p></div>
+      <div class="plan-day" data-day="6"><h4>Organize sua rotina</h4><p>Planejamento semanal e checklist dos seus processos.</p></div>
+      <div class="plan-day" data-day="7"><h4>Coloque tudo pra funcionar</h4><p>Revise, ajuste o que fizer sentido e comece a publicar, enviar e vender com IA.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>2 bônus pra você começar hoje</h2>
+      <p>Inclusos sem custo adicional na sua compra.</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card b1">
+        <span class="bonus-tag">BÔNUS 01</span>
+        <h3>Calendário de Conteúdo de 30 Dias</h3>
+        <p>30 ideias prontas pra publicar — um tema por dia, sem depender de inspiração.</p>
+      </div>
+      <div class="bonus-card b2">
+        <span class="bonus-tag">BÔNUS 02</span>
+        <h3>Checklist "Meu Negócio com IA"</h3>
+        <p>Uma folha simples pra marcar o que já está pronto e o que falta organizar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Esse material é pra você se…</h2>
+      <p>Sem enrolação: veja se você se encaixa antes de decidir.</p>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-item"><span class="aud-check">✓</span><p>Você toca o negócio sozinho(a) e cuida de tudo — do post ao atendimento.</p></div>
+      <div class="aud-item"><span class="aud-check">✓</span><p>Vende pelo Instagram e pelo WhatsApp e não tem tempo sobrando no dia.</p></div>
+      <div class="aud-item"><span class="aud-check">✓</span><p>Quer parecer mais profissional sem contratar uma agência.</p></div>
+      <div class="aud-item"><span class="aud-check">✓</span><p>Já ouviu falar de IA, mas nunca soube por onde começar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="oferta">
+  <div class="wrap">
+    <div class="offer-box">
+      <span class="offer-kicker">ACESSO IMEDIATO</span>
+      <h2>Comece a usar IA no seu negócio hoje</h2>
+      <div class="price-row">
+        <span class="price-tag"><sup>R$</sup>19,90</span>
+      </div>
+      <p class="price-note">pagamento único · sem mensalidade</p>
+      <div class="offer-list">
+        <div class="item"><span class="ok">✓</span><span>Ebook completo com 110 prompts prontos (45 páginas)</span></div>
+        <div class="item"><span class="ok">✓</span><span>7 módulos + plano de ação de 7 dias</span></div>
+        <div class="item"><span class="ok">✓</span><span>Bônus 1: Calendário de Conteúdo de 30 Dias</span></div>
+        <div class="item"><span class="ok">✓</span><span>Bônus 2: Checklist "Meu Negócio com IA"</span></div>
+        <div class="item"><span class="ok">✓</span><span>Acesso imediato após a confirmação da compra</span></div>
+      </div>
+      <a href="https://pay.cakto.com.br/qa4vxiu_1105635" target="_blank" rel="noopener" class="btn-primary pulse">Quero garantir meu acesso agora</a>
+      <p class="offer-guarantee">🛡️ Garantia incondicional de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="seal">7 DIAS<br>GARANTIA</div>
+    <div>
+      <h3>Risco zero pra você experimentar</h3>
+      <p>Use os prompts no seu negócio por 7 dias. Se sentir que não fez sentido pra sua rotina, é só pedir reembolso — sem perguntas, sem burocracia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-head">
+    <h2>Perguntas frequentes</h2>
+  </div>
+  <details class="faq-item">
+    <summary>Preciso pagar pelo ChatGPT pra usar os prompts?</summary>
+    <p>Não. A versão gratuita do ChatGPT já executa todos os 110 prompts do ebook normalmente.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Funciona pra qualquer tipo de negócio?</summary>
+    <p>Sim. Os prompts são modelos — você personaliza com os dados do seu produto ou serviço em poucos segundos, trocando o que está entre colchetes.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Nunca usei inteligência artificial. Vou conseguir?</summary>
+    <p>Vai. O primeiro módulo foi feito exatamente pra isso: te tira do zero com segurança, em linguagem simples, sem termos técnicos.</p>
+  </details>
+  <details class="faq-item">
+    <summary>É um curso longo, com aulas em vídeo?</summary>
+    <p>Não. É um material prático de consulta rápida — você usa o prompt certo no momento em que precisar, sem precisar ler tudo antes de começar.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Como recebo o material após a compra?</summary>
+    <p>O acesso é liberado por e-mail assim que a compra é confirmada. Você pode ler no computador ou no celular.</p>
+  </details>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Enquanto você pensa, seu concorrente já está usando IA pra vender mais.</h2>
+    <p>110 prompts. Nenhuma desculpa.</p>
+    <a href="https://pay.cakto.com.br/qa4vxiu_1105635" target="_blank" rel="noopener" class="btn-primary pulse">Quero meus 110 prompts por R$ 19,90</a>
+  </div>
+</section>
+
+<footer>
+  <p>IA que Trabalha por Você — Coleção Negócios Inteligentes</p>
+</footer>
+
+</body>
+</html>
